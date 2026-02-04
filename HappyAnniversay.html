@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Wedding Anniversary ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: "Segoe UI", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    a {
+      font-size: 22px;
+      color: #fff;
+      text-decoration: none;
+      background: #d63384;
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #fff;
+      max-width: 500px;
+      display: none;
+      min-height: 120px;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <a href="#" onclick="startLove(); return false;">Click here 💖</a>
+  <div id="msg" class="message"></div>
+</div>
+
+<audio id="bgMusic">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const text =
+  "💍 Happy Wedding Anniversary ❤️\n\nThank you for being my love, my strength, and my forever.\nEvery day with you feels special.\nI love you endlessly 💕";
+
+  let index = 0;
+
+  function startLove() {
+    document.getElementById("msg").style.display = "block";
+    document.getElementById("bgMusic").play();
+    typeText();
+    createHearts();
+  }
+
+  function typeText() {
+    if (index < text.length) {
+      document.getElementById("msg").innerHTML +=
+        text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
+      index++;
+      setTimeout(typeText, 60);
+    }
+  }
+
+  function createHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  }
+</script>
+
+</body>
+</html>
