@@ -65,7 +65,7 @@
 <body>
 
 <div class="container">
-  <a href="#" onclick="startLove(); return false;">Click here 💖</a>
+  <a href="#" id="starBtn" onclick="startLove(); return false;">Hey Libi etta!! Click here 💖</a>
   <div id="msg" class="message"></div>
 </div>
 
@@ -75,11 +75,12 @@
 
 <script>
   const text =
-  "💍 Happy Wedding Anniversary ❤️\n\nThank you for being my love, my strength, and my forever.\nEvery day with you feels special.\nI love you endlessly 💕";
+  "💍 Happy Anniversary Libi etta❤️\n\nWith you in everything.\nWith you in nothing.\nWith you always\nWe survived another year of marriage.\nI love you endlessly 💕";
 
   let index = 0;
 
   function startLove() {
+    document.getElementById("startBtn").style.display = "none";
     document.getElementById("msg").style.display = "block";
     document.getElementById("bgMusic").play();
     typeText();
@@ -111,4 +112,5 @@
 
 </body>
 </html>
+
 
